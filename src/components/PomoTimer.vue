@@ -8,12 +8,14 @@ const props = defineProps<{
 
 onMounted(() => {
   assignTitle(timerData.value.title);
+  Notification.requestPermission();
 });
 
 function assignTitle(newTitle: string) {
   const tt = document.getElementById("pomo-title");
   if (!tt) return;
 
+  document.title = newTitle;
   tt.innerText = newTitle;
 }
 
@@ -60,17 +62,24 @@ function switchState(stateName: string, shake: boolean = true) {
   if (timerState == "shortBreak" || timerState == "longBreak") col = "#5FBB97";
   container.style.backgroundColor = col;
 
+  let label = timerData.value.title + ": " + getLabel();
+  document.title = label;
+
   if (shake) {
     container.classList.add("animate__shakeX");
+    new Notification(label, { vibrate: 1000 });
+
     // shake
     setTimeout(() => {
       container?.classList.remove("animate__shakeX");
     }, 1000);
+  } else {
+    document.title = "DōmoPomo";
   }
 }
 
 function getLabel() {
-  if (timerState == "work") return "Back to work!";
+  if (timerState == "work") return "Time to work!";
   else if (timerState == "shortBreak") return "Time for a short break!";
   return "Time for a long break!";
 }

@@ -70,7 +70,7 @@ body {
 
     .input-field {
       display: flex;
-      width: 50%;
+      width: 45%;
       justify-content: space-between;
     }
   }
@@ -109,4 +109,46 @@ body {
 button {
   padding: .25rem;
   width: 4rem;
+}
+
+.start-timer-form {
+  gap: 1rem;
+
+  input {
+    width: 2rem;
+    font-size: 1rem;
+  }
+
+  .title-input {
+    width: auto;
+    margin: auto;
+  }
+}
+
+input {
+  all: unset;
+
+  background-color: $c_darkbg;
+  border-radius: .25rem;
+  border: 1px solid $c_darkbg;
+  transition: border-color .25s ease-in-out;
+  text-align: center;
+
+  &:focus {
+    border: 1px solid $c_accent;
+  }
+}
+
+.input-field {
+  display: flex;
+
+  text-align: left;
+
+  p:first-child {
+    width: 9rem;
+  }
+
+  p:last-child {
+    width: 4rem;
+  }
 }

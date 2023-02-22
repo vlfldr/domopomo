@@ -36,24 +36,27 @@ function resetTimer() {
       />
       <div v-else class="start-timer-form">
         <div class="input-field">
-          <span class="input-label">Title</span
-          ><input v-model="timerData.title" />
+          <input class="title-input" v-model="timerData.title" />
         </div>
         <div class="input-field">
-          Work session<span class="input-label"></span
-          ><input v-model="timerData.workTime" />
+          <p>Work session</p>
+          <input v-model="timerData.workTime" />
+          <p>minutes</p>
         </div>
         <div class="input-field">
-          Short break<span class="input-label"></span
-          ><input v-model="timerData.shortBreakTime" />
+          <p>Short break</p>
+          <input v-model="timerData.shortBreakTime" />
+          <p>minutes</p>
         </div>
         <div class="input-field">
-          Long break<span class="input-label"></span
-          ><input v-model="timerData.longBreakTime" />
+          <p>Long break</p>
+          <input v-model="timerData.longBreakTime" />
+          <p>minutes</p>
         </div>
         <div class="input-field">
-          Break interval<span class="input-label"></span
-          ><input v-model="timerData.longBreakInterval" />
+          <p>Long break every</p>
+          <input v-model="timerData.longBreakInterval" />
+          <p>breaks</p>
         </div>
         <button @click="timerCreated = true">Start</button>
       </div>
