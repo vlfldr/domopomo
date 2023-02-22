@@ -1,0 +1,112 @@
+$c_darkbg: #000814ff;
+$c_bg: #001d3dff;
+$c_lightbg: #003566ff;
+$c_fg: #ece4b7ff;
+$c_lightfg: #ffd60aff;
+$c_accent: #5FBB97ff;
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: $c_fg;
+  background-color: $c_bg;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  place-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+#app {
+  margin: 0 auto;
+  text-align: center;
+  height: 100vh;
+  min-width: 600px;
+}
+
+#page {
+  display: flex;
+  height: 100%;
+  gap: 2rem;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.title-container {
+  margin-top: 2rem;
+}
+
+#pomo-container {
+  background-color: $c_lightbg;
+  transition: background-color .25s ease-in-out;
+  border-radius: .5rem;
+  box-shadow: 5px 5px 7px 4px rgba(5,5,5,0.5);
+  height: 100%;
+
+  .start-timer-form {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+
+    .input-field {
+      display: flex;
+      width: 50%;
+      justify-content: space-between;
+    }
+  }
+}
+
+.footer-container {
+  margin-bottom: 2rem;
+}
+
+// PomoTimer.vue
+.timer-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  &--buttons {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    right: 1rem;
+    display: flex;
+    justify-content: space-between;
+    
+  }
+
+  &--main {
+    margin: auto;
+    .countdown {
+      font-size: 4rem;
+    }
+  }
+  
+}
+
+button {
+  padding: .25rem;
+  width: 4rem;
+}
