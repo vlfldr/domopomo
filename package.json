@@ -1,5 +1,5 @@
 {
-  "name": "pomo-ts",
+  "name": "alpine-pomo",
   "private": true,
   "version": "0.0.0",
   "scripts": {
@@ -8,9 +8,7 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^4.0.0",
-    "eslint": "^8.34.0",
-    "eslint-plugin-vue": "^9.9.0",
+    "@types/alpinejs": "^3.7.1",
     "sass": "^1.58.3",
     "typescript": "^4.9.3",
     "vite": "^4.1.0"
@@ -21,7 +19,6 @@
     "not dead"
   ],
   "dependencies": {
-    "animate.css": "^4.1.1",
-    "vue": "^3.2.47"
+    "alpinejs": "^3.11.1"
   }
 }

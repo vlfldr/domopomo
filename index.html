@@ -2,13 +2,82 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/logo1.png" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DōmoPomo</title>
+    <title>Alpine Pomo</title>
   </head>
-
   <body>
-    <div id="app"></div>
+    <div id="app" x-data>
+      <div id="page">
+        <div class="title-container">
+          <h1 id="pomo-title">DōmoPomo</h1>
+          <h2>Pomodoro Timer</h2>
+        </div>
+        <div id="pomo-container" class="animate__animated">
+          <div x-show="$store.timerData.created" class="timer-container">
+            <div class="timer-container--buttons">
+              <button
+                @click="
+                  $store.timerData.reset()
+                "
+              >
+                Delete
+              </button>
+              <button
+                x-show="!$store.timerData.paused"
+                @click="$store.timerData.pauseUnpause()"
+              >
+                Pause
+              </button>
+              <button
+                x-show="$store.timerData.paused"
+                @click="$store.timerData.pauseUnpause()"
+              >
+                Resume
+              </button>
+              <button>Edit</button>
+            </div>
+
+            <div class="timer-container--main">
+              <h1 x-text="$store.timerData.getLabel()"></h1>
+              <div
+                x-text="$store.timerData.timeRemaining"
+                class="countdown"
+              ></div>
+            </div>
+          </div>
+          <div x-show="!$store.timerData.created" class="start-timer-form">
+            <div class="input-field">
+              <input class="title-input" x-model="$store.timerData.title" />
+            </div>
+            <div class="input-field">
+              <p>Work session</p>
+              <input x-model="$store.timerData.workTime" />
+              <p>minutes</p>
+            </div>
+            <div class="input-field">
+              <p>Short break</p>
+              <input x-model="$store.timerData.shortBreakTime" />
+              <p>minutes</p>
+            </div>
+            <div class="input-field">
+              <p>Long break</p>
+              <input x-model="$store.timerData.longBreakTime" />
+              <p>minutes</p>
+            </div>
+            <div class="input-field">
+              <p>Long break every</p>
+              <input x-model="$store.timerData.longBreakInterval" />
+              <p>breaks</p>
+            </div>
+            <button @click="$store.timerData.start()">Start</button>
+          </div>
+        </div>
+        <div class="footer-container">
+          <p>Made with apathy 🥀</p>
+        </div>
+      </div>
+    </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
